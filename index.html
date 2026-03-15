@@ -344,12 +344,32 @@ function hata(msg) {
 }
 
 // ── BAŞLAT ──────────────────────────────────────────────
-const data = getRaporData();
-if (data) {
-  render(data);
-} else {
-  hata('Rapor verisi bulunamadı. Lütfen geçerli bir link kullanın.');
+async function baslat() {
+  // Önce #d= veya ?d= ile gömülü veri var mı?
+  const data = getRaporData();
+  if (data) { render(data); return; }
+
+  // ?r=ID ile GitHub'dan yükle
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('r');
+  if (id) {
+    try {
+      // GitHub raw JSON — cache bypass için timestamp ekle
+      const url = `https://raw.githubusercontent.com/emlak-rapor/emlak-rapor/main/raporlar/${id}.json?t=${Date.now()}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Rapor bulunamadı ('+res.status+')');
+      const json = await res.json();
+      render(json);
+    } catch(e) {
+      hata(e.message);
+    }
+    return;
+  }
+
+  hata('Geçerli bir rapor linki bulunamadı.');
 }
+
+baslat();
 </script>
 </body>
 </html>
