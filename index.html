@@ -250,11 +250,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
 <script>
 const KURUMLAR = {
-  'kurum-remax':       { color:'#C0392B', label:'RE/MAX',        icon:'R',  sub:'REAL ESTATE',      bg:'#C0392B' },
-  'kurum-coldwell':    { color:'#003087', label:'COLDWELL BANKER',icon:'CB', sub:'REAL ESTATE',      bg:'#003087' },
-  'kurum-century21':   { color:'#C9A227', label:'CENTURY 21',    icon:'21', sub:'REAL ESTATE',      bg:'#C9A227' },
-  'kurum-era':         { color:'#0055A5', label:'ERA',           icon:'ERA',sub:'REAL ESTATE',      bg:'#0055A5' },
-  'kurum-realtyworld': { color:'#D4601A', label:'REALTY WORLD',  icon:'RW', sub:'TÜRKIYE',          bg:'#D4601A' },
+  'kurum-remax':     { color:'#ffffff', textColor:'#ffffff', bg:'#003A8F', border:'#ED1C24', label:'RE/MAX',              icon:'R',   sub:'REAL ESTATE' },
+  'kurum-coldwell':  { color:'#ffffff', textColor:'#ffffff', bg:'#002B5C', border:'#4FA3D1', label:'COLDWELL BANKER',     icon:'CB',  sub:'REAL ESTATE' },
+  'kurum-century21': { color:'#C9A14A', textColor:'#C9A14A', bg:'#000000', border:'#C9A14A', label:'CENTURY 21',          icon:'21',  sub:'REAL ESTATE' },
+  'kurum-kw':        { color:'#ffffff', textColor:'#ffffff', bg:'#B40101', border:'#4D4D4D', label:'KELLER WILLIAMS',     icon:'KW',  sub:'REALTY' },
+  'kurum-era':       { color:'#ffffff', textColor:'#ffffff', bg:'#0054A6', border:'#E31837', label:'ERA',                 icon:'ERA', sub:'REAL ESTATE' },
+  'kurum-sothebys':  { color:'#ffffff', textColor:'#ffffff', bg:'#0D2A4A', border:'#FFFFFF', label:"SOTHEBY'S",          icon:'SIR', sub:'INTERNATIONAL REALTY' },
 };
 const A812 = {'1297863':0,'1297864':0,'40602':3,'40603':3,'40604':3,'40605':3,'1297865':3,'40606':8,'40607':13,'43901':18,'43902':23,'43903':28,'43904':35};
 const fmt = n => Math.round(n||0).toLocaleString('tr-TR');
@@ -390,18 +391,23 @@ function render(data) {
   const ag=data.agent||{}, P=data.palet||'klasik';
   const kurum=KURUMLAR[P];
   _agentPhone=ag.phone||'';
-  _accentColor=kurum?.color||'#2563eb';
-  if(kurum) document.documentElement.style.setProperty('--kurum-color',kurum.color);
+  _accentColor=kurum?.bg||'#2563eb';
+  if(kurum) {
+    document.documentElement.style.setProperty('--kurum-color', kurum.bg);
+    document.documentElement.style.setProperty('--accent', kurum.bg);
+  }
 
   let h='';
 
   // ── Kurum Banner ──
   if(kurum) {
-    h+=`<div class="kurum-banner" style="background:${kurum.bg}">
-      <div class="kurum-banner-logo">${kurum.icon}</div>
+    const logoColor = kurum.textColor === '#C9A14A' ? '#C9A14A' : kurum.bg;
+    const logoBg    = kurum.textColor === '#C9A14A' ? '#111' : 'white';
+    h+=`<div class="kurum-banner" style="background:${kurum.bg};border-top:6px solid ${kurum.border}">
+      <div class="kurum-banner-logo" style="color:${logoColor};background:${logoBg}">${kurum.icon}</div>
       <div class="kurum-banner-text">
-        <div class="kurum-banner-name">${kurum.label}</div>
-        <div class="kurum-banner-sub">${kurum.sub}</div>
+        <div class="kurum-banner-name" style="color:${kurum.textColor}">${kurum.label}</div>
+        <div class="kurum-banner-sub" style="color:${kurum.textColor};opacity:0.7">${kurum.sub}</div>
       </div>
       <button class="kurum-banner-close" onclick="this.closest('.kurum-banner').style.display='none'">×</button>
     </div>`;
@@ -442,6 +448,22 @@ function render(data) {
   </div>`;
 
   // ── İlan kartları ──
+  // Pazarlama planı
+  if(data.pazarGruplar && Object.keys(data.pazarGruplar).length) {
+    h+=`<div style="background:white;border-bottom:1px solid var(--border);padding:18px 16px">
+      <div style="font-size:12px;font-weight:800;color:#059669;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">📣 Pazarlama Planı</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${Object.entries(data.pazarGruplar).map(([grup,items])=>`
+          <div style="margin-bottom:8px">
+            <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px">${grup}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px">
+              ${items.map(item=>`<span style="background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500">✓ ${item}</span>`).join('')}
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
   h+=`<div class="liste"><div class="liste-baslik">📋 ${_ilanlar.length} Mülk Listelendi</div>`;
 
   _ilanlar.forEach((l,i)=>{
