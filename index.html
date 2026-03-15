@@ -189,10 +189,11 @@ function modalAc(idx) {
   _mCur = 0;
   const yas = binaYas(l), kat = l.floorText || '';
   const tip = l.tip === 'kiralik' ? 'Kiralık' : 'Satılık';
-  const loc = l._location || {};
+  const loc = l._location || (typeof l.location === 'object' ? l.location : {}) || {};
   const koord = loc.lat && +loc.lat > 35;
   const adres = loc?.address || (typeof l.location==='string' ? l.location : '') || '';
-  const bolge = adres || (l.location||'').split('/').pop()?.trim() || '';
+  const locStr = typeof l.location === 'string' ? l.location : (loc.address || '');
+  const bolge = adres || locStr.split('/').pop()?.trim() || '';
   const mapQ  = koord ? `${(+loc.lat).toFixed(6)},${(+loc.lon).toFixed(6)}` : encodeURIComponent(bolge+' İstanbul');
   const feats = Object.values(l.features||{}).flat();
   const no = String(idx+1).padStart(2,'0');
