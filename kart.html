@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0f172a">
+<title>Emlak Danışmanı</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{
+  --bg:#f1f5f9;--card:#ffffff;--text:#0f172a;--soft:#475569;--muted:#94a3b8;
+  --border:#e2e8f0;--accent:#1d4ed8;--green:#16a34a;--radius:16px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+
+/* ── HEADER ── */
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 60%,#1d4ed8 100%);padding:40px 24px 80px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:rgba(255,255,255,0.05);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;background:rgba(255,255,255,0.04);border-radius:50%;}
+.avatar-wrap{position:relative;display:inline-block;margin-bottom:16px;}
+.avatar{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);object-fit:cover;background:#1e40af;display:flex;align-items:center;justify-content:center;font-size:36px;color:white;margin:0 auto;}
+.hero-name{font-size:24px;font-weight:800;color:white;margin-bottom:4px;}
+.hero-title{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:4px;}
+.hero-company{font-size:13px;color:rgba(255,255,255,0.55);}
+
+/* ── CARD BODY ── */
+.body{padding:0 16px;margin-top:-48px;position:relative;z-index:10;max-width:480px;margin-left:auto;margin-right:auto;}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,0.10);overflow:hidden;margin-bottom:14px;}
+
+/* ── CONTACT BUTTONS ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px;}
+.contact-grid.solo{grid-template-columns:1fr;}
+.btn-contact{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 16px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity 0.15s;}
+.btn-contact:active{opacity:0.75;}
+.btn-tel{background:#0f172a;color:white;}
+.btn-wa{background:#25d366;color:white;}
+.btn-mail{background:#ea4335;color:white;}
+.btn-web{background:#0369a1;color:white;}
+.btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:white;}
+.btn-li{background:#0077b5;color:white;}
+.btn-yt{background:#ff0000;color:white;}
+.btn-icon{width:20px;height:20px;flex-shrink:0;}
+
+/* ── BIO ── */
+.bio-box{padding:18px 20px;font-size:14px;color:var(--soft);line-height:1.7;}
+
+/* ── BÖLÜM BAŞLIĞI ── */
+.sec-head{padding:14px 20px 4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+/* ── PORTFÖY ── */
+.portfoy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;overflow:hidden;}
+.portfoy-img{width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;display:block;}
+.portfoy-link{display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--border);text-decoration:none;color:var(--text);font-size:13px;font-weight:500;}
+.portfoy-link:first-of-type{border-top:1px solid var(--border);}
+.portfoy-link:hover{background:#f8fafc;}
+
+/* ── DOSYALAR ── */
+.file-row{display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--border);}
+.file-row:first-child{border-top:none;}
+.file-badge{font-size:10px;font-weight:700;color:white;padding:3px 7px;border-radius:5px;flex-shrink:0;}
+.badge-pdf{background:#dc2626;}
+.badge-ppt,.badge-pptx{background:#ea580c;}
+.badge-doc,.badge-docx{background:#2563eb;}
+.badge-other{background:#6b7280;}
+.file-name{flex:1;font-size:13px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.file-size{font-size:11px;color:var(--muted);flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:24px 16px 36px;font-size:11px;color:var(--muted);}
+.footer a{color:var(--accent);text-decoration:none;font-weight:600;}
+
+/* ── LOADING / ERROR ── */
+.loading{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted);}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.error-box{text-align:center;padding:60px 24px;}
+
+/* ── LİGHTBOX ── */
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;}
+#lightbox.open{display:flex;}
+#lightbox img{max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;}
+#lightbox-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.2);border:none;color:white;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="loading">
+    <div class="spinner"></div>
+    <span>Kartvizit yükleniyor…</span>
+  </div>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function svgIcon(type) {
+  const icons = {
+    phone: `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>`,
+    wa:    `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>`,
+    mail:  `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`,
+    web:   `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+    ig:    `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`,
+    li:    `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>`,
+    yt:    `<svg class="btn-icon" viewBox="0 0 24 24" fill="white"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>`,
+    link:  `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>`,
+  };
+  return icons[type] || '';
+}
+
+function badgeClass(ext) {
+  return {PDF:'badge-pdf',PPT:'badge-ppt',PPTX:'badge-pptx',DOC:'badge-doc',DOCX:'badge-docx'}[ext] || 'badge-other';
+}
+
+function render(d) {
+  // Sayfa başlığı
+  document.title = (d.name || 'Emlak Danışmanı') + (d.company ? ' — ' + d.company : '');
+
+  // Sosyal linkler
+  const sosyalBtns = [
+    d.swWa  && d.wa  ? `<a href="https://wa.me/${d.wa.replace(/\D/g,'')}" class="btn-contact btn-wa" target="_blank">${svgIcon('wa')} WhatsApp</a>` : '',
+    d.email          ? `<a href="mailto:${d.email}" class="btn-contact btn-mail" target="_blank">${svgIcon('mail')} E-posta</a>` : '',
+    d.swWeb && d.web ? `<a href="${d.web.startsWith('http')?d.web:'https://'+d.web}" class="btn-contact btn-web" target="_blank">${svgIcon('web')} Website</a>` : '',
+    d.swIg  && d.ig  ? `<a href="https://instagram.com/${d.ig.replace('@','')}" class="btn-contact btn-ig" target="_blank">${svgIcon('ig')} Instagram</a>` : '',
+    d.swLi  && d.li  ? `<a href="${d.li.startsWith('http')?d.li:'https://linkedin.com/in/'+d.li}" class="btn-contact btn-li" target="_blank">${svgIcon('li')} LinkedIn</a>` : '',
+    d.swYt  && d.yt  ? `<a href="${d.yt.startsWith('http')?d.yt:'https://youtube.com/@'+d.yt}" class="btn-contact btn-yt" target="_blank">${svgIcon('yt')} YouTube</a>` : '',
+  ].filter(Boolean);
+
+  // Portföy görselleri
+  const portfoyImgs = (d.portfoyImages || []).slice(0, 9);
+  const portfoyLinksHtml = (d.portfoyLinks || []).map(url => {
+    const display = url.replace(/^https?:\/\//,'').substring(0,45);
+    return `<a href="${url}" class="portfoy-link" target="_blank">${svgIcon('link')} <span>${display}</span></a>`;
+  }).join('');
+
+  // Dosyalar
+  const filesHtml = (d.files || []).map(f =>
+    `<div class="file-row">
+      <span class="file-badge ${badgeClass(f.ext)}">${f.ext}</span>
+      <span class="file-name">${f.name}</span>
+      <span class="file-size">${f.size}</span>
+    </div>`
+  ).join('');
+
+  const hasBio      = !!d.bio;
+  const hasPortfoy  = portfoyImgs.length > 0 || (d.portfoyLinks||[]).length > 0;
+  const hasFiles    = (d.files||[]).length > 0;
+  const hasSosyal   = sosyalBtns.length > 0;
+
+  document.getElementById('app').innerHTML = `
+    <div class="hero">
+      <div class="avatar-wrap">
+        <div class="avatar">👤</div>
+      </div>
+      <div class="hero-name">${d.name || 'Emlak Danışmanı'}</div>
+      ${d.title   ? `<div class="hero-title">${d.title}</div>` : ''}
+      ${d.company ? `<div class="hero-company">${d.company}</div>` : ''}
+    </div>
+
+    <div class="body">
+
+      <!-- İletişim -->
+      <div class="card">
+        <div class="contact-grid${hasSosyal && d.phone ? '' : ' solo'}">
+          ${d.phone ? `<a href="tel:${d.phone.replace(/\s/g,'')}" class="btn-contact btn-tel">${svgIcon('phone')} ${d.phone}</a>` : ''}
+          ${sosyalBtns.join('')}
+        </div>
+      </div>
+
+      ${hasBio ? `
+      <!-- Hakkımda -->
+      <div class="card">
+        <div class="bio-box">${d.bio.replace(/\n/g,'<br>')}</div>
+      </div>` : ''}
+
+      ${hasPortfoy ? `
+      <!-- Portföy -->
+      <div class="card">
+        <div class="sec-head">Portföy</div>
+        ${portfoyImgs.length > 0 ? `
+        <div class="portfoy-grid">
+          ${portfoyImgs.map((src,i) => `<img class="portfoy-img" src="${src}" loading="lazy" onclick="openLightbox('${src}')" alt="Portföy ${i+1}">`).join('')}
+        </div>` : ''}
+        ${portfoyLinksHtml}
+      </div>` : ''}
+
+      ${hasFiles ? `
+      <!-- Dosyalar -->
+      <div class="card">
+        <div class="sec-head">Belgeler & Sunumlar</div>
+        ${filesHtml}
+      </div>` : ''}
+
+      <div class="footer">
+        <p>Emlak Pro ile oluşturuldu</p>
+        ${d.updatedAt ? `<p style="margin-top:4px;">Güncelleme: ${new Date(d.updatedAt).toLocaleDateString('tr-TR')}</p>` : ''}
+      </div>
+
+    </div>
+  `;
+}
+
+async function baslat() {
+  const slug = new URLSearchParams(location.search).get('k');
+  if (!slug) {
+    document.getElementById('app').innerHTML = `<div class="error-box"><div style="font-size:48px;margin-bottom:16px">🏠</div><div style="font-size:17px;font-weight:700;color:#0f172a">Kartvizit bulunamadı</div><div style="font-size:13px;color:#94a3b8;margin-top:8px">Geçerli bir link kullanın.</div></div>`;
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      `https://raw.githubusercontent.com/emlak-rapor/emlak-rapor/main/kartlar/${slug}.json?t=${Date.now()}`
+    );
+    if (!res.ok) throw new Error('Kartvizit bulunamadı');
+    const data = await res.json();
+    render(data);
+  } catch(e) {
+    document.getElementById('app').innerHTML = `<div class="error-box"><div style="font-size:48px;margin-bottom:16px">😔</div><div style="font-size:17px;font-weight:700;color:#0f172a">Yüklenemedi</div><div style="font-size:13px;color:#94a3b8;margin-top:8px">${e.message}</div></div>`;
+  }
+}
+
+baslat();
+</script>
+</body>
+</html>
