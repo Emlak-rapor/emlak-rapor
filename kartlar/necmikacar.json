@@ -1,0 +1,31 @@
+{
+  "name": "Necmi Kacar",
+  "title": "Gayrimenkul Danışmanı",
+  "company": "RE/MAX",
+  "slug": "necmikacar",
+  "phone": "5393221730",
+  "email": "necmikacar2@gmail.com",
+  "bio": "10+yıllık deneyimim var",
+  "wa": "05393221730",
+  "swWa": true,
+  "ig": "@kacar.necmi",
+  "swIg": true,
+  "li": "",
+  "swLi": false,
+  "web": "",
+  "swWeb": false,
+  "yt": "",
+  "swYt": false,
+  "files": [
+    {
+      "name": "Portfoy_Necmi_Kacar",
+      "ext": "HTML",
+      "size": "4.1 MB"
+    }
+  ],
+  "portfoyLinks": [
+    "https://remax.com.tr/tr/danisman/43895/sila-kacar"
+  ],
+  "portfoyImages": [],
+  "updatedAt": "2026-03-24T02:43:12.641Z"
+}
