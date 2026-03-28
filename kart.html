@@ -18,7 +18,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:rgba(255,255,255,0.05);border-radius:50%;}
 .hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;background:rgba(255,255,255,0.04);border-radius:50%;}
 .avatar-wrap{position:relative;display:inline-block;margin-bottom:16px;}
-.avatar{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);object-fit:cover;background:#1e40af;display:flex;align-items:center;justify-content:center;font-size:36px;color:white;margin:0 auto;}
+/* ── AVATAR ── */
+.avatar{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);object-fit:cover;display:block;margin:0 auto 16px;}
+.avatar-ph{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 16px;}
 .hero-name{font-size:24px;font-weight:800;color:white;margin-bottom:4px;}
 .hero-title{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:4px;}
 .hero-company{font-size:13px;color:rgba(255,255,255,0.55);}
@@ -61,6 +63,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .badge-pdf{background:#dc2626;}
 .badge-ppt,.badge-pptx{background:#ea580c;}
 .badge-doc,.badge-docx{background:#2563eb;}
+.badge-html,.badge-htm{background:#7c3aed;}
 .badge-other{background:#6b7280;}
 .file-name{flex:1;font-size:13px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .file-size{font-size:11px;color:var(--muted);flex-shrink:0;}
@@ -75,7 +78,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @keyframes spin{to{transform:rotate(360deg);}}
 .error-box{text-align:center;padding:60px 24px;}
 
-/* ── LİGHTBOX ── */
+/* ── HTML VIEWER MODAL ── */
+#htmlModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:2000;flex-direction:column;}
+#htmlModal.open{display:flex;}
+#htmlModal-bar{background:#0f172a;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+#htmlModal-title{font-size:14px;font-weight:600;color:white;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#htmlModal-close{background:rgba(255,255,255,0.15);border:none;color:white;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;}
+#htmlModal iframe{flex:1;border:none;background:white;}
 #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;}
 #lightbox.open{display:flex;}
 #lightbox img{max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;}
@@ -96,6 +105,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <img id="lightbox-img" src="" alt="">
 </div>
 
+<!-- HTML Dosya Görüntüleyici -->
+<div id="htmlModal">
+  <div id="htmlModal-bar">
+    <span id="htmlModal-title">Belge</span>
+    <button id="htmlModal-close" onclick="closeHtmlModal()">✕ Kapat</button>
+  </div>
+  <iframe id="htmlModal-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+</div>
+
 <script>
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
@@ -104,6 +122,30 @@ function closeLightbox() {
 function openLightbox(src) {
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox').classList.add('open');
+}
+
+function closeHtmlModal() {
+  document.getElementById('htmlModal').classList.remove('open');
+  document.getElementById('htmlModal-frame').src = 'about:blank';
+}
+
+function openHtmlModal(name, b64content) {
+  try {
+    const html = decodeURIComponent(escape(atob(b64content)));
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    document.getElementById('htmlModal-title').textContent = name;
+    document.getElementById('htmlModal-frame').src = url;
+    document.getElementById('htmlModal').classList.add('open');
+  } catch(e) {
+    alert('Dosya açılamadı: ' + e.message);
+  }
+}
+
+function openHtmlModalUrl(name, url) {
+  document.getElementById('htmlModal-title').textContent = name;
+  document.getElementById('htmlModal-frame').src = url;
+  document.getElementById('htmlModal').classList.add('open');
 }
 
 function svgIcon(type) {
@@ -121,12 +163,17 @@ function svgIcon(type) {
 }
 
 function badgeClass(ext) {
-  return {PDF:'badge-pdf',PPT:'badge-ppt',PPTX:'badge-pptx',DOC:'badge-doc',DOCX:'badge-docx'}[ext] || 'badge-other';
+  return {PDF:'badge-pdf',PPT:'badge-ppt',PPTX:'badge-pptx',DOC:'badge-doc',DOCX:'badge-docx',HTML:'badge-html',HTM:'badge-html'}[ext] || 'badge-other';
 }
 
 function render(d) {
   // Sayfa başlığı
   document.title = (d.name || 'Emlak Danışmanı') + (d.company ? ' — ' + d.company : '');
+
+  // Avatar — photo varsa sonradan set et (büyük base64'ü template içine yazma)
+  const avatarHTML = d.photo
+    ? `<img class="avatar" id="kv-avatar-img" src="" alt="${d.name||''}">`
+    : `<div class="avatar-ph">👤</div>`;
 
   // Sosyal linkler
   const sosyalBtns = [
@@ -145,14 +192,40 @@ function render(d) {
     return `<a href="${url}" class="portfoy-link" target="_blank">${svgIcon('link')} <span>${display}</span></a>`;
   }).join('');
 
-  // Dosyalar
-  const filesHtml = (d.files || []).map(f =>
-    `<div class="file-row">
+  // Dosyalar — HTML olanlar için "Görüntüle" butonu
+  const _htmlFiles = {};
+  const filesHtml = (d.files || []).map((f, i) => {
+    const hasHtml = (f.ext === 'HTML' || f.ext === 'HTM') && (f.htmlContent || f.htmlUrl);
+    if (hasHtml) _htmlFiles[i] = { name: f.name, content: f.htmlContent || '', url: f.htmlUrl || '' };
+    const action = hasHtml
+      ? `<button class="kv-html-btn" data-idx="${i}"
+           style="padding:5px 12px;background:#7c3aed;color:white;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;">▶ Aç</button>`
+      : `<span style="font-size:11px;color:var(--muted);flex-shrink:0;">${f.size}</span>`;
+    return `<div class="file-row">
       <span class="file-badge ${badgeClass(f.ext)}">${f.ext}</span>
       <span class="file-name">${f.name}</span>
-      <span class="file-size">${f.size}</span>
-    </div>`
-  ).join('');
+      ${action}
+    </div>`;
+  }).join('');
+  // Buton event'lerini render sonrası bağla
+  setTimeout(() => {
+    document.querySelectorAll('.kv-html-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = _htmlFiles[btn.dataset.idx];
+        if (!item) return;
+        if (item.url) {
+          // GitHub Pages'den yüklenen HTML — iframe src ile aç
+          openHtmlModalUrl(item.name, item.url);
+        } else if (item.content) {
+          // Base64 içerik — Blob URL oluştur
+          openHtmlModal(item.name, item.content);
+        }
+      });
+    });
+    // Fotoğrafı sonradan set et
+    const imgEl = document.getElementById('kv-avatar-img');
+    if (imgEl && d.photo) imgEl.src = d.photo;
+  }, 0);
 
   const hasBio      = !!d.bio;
   const hasPortfoy  = portfoyImgs.length > 0 || (d.portfoyLinks||[]).length > 0;
@@ -161,9 +234,7 @@ function render(d) {
 
   document.getElementById('app').innerHTML = `
     <div class="hero">
-      <div class="avatar-wrap">
-        <div class="avatar">👤</div>
-      </div>
+      ${avatarHTML}
       <div class="hero-name">${d.name || 'Emlak Danışmanı'}</div>
       ${d.title   ? `<div class="hero-title">${d.title}</div>` : ''}
       ${d.company ? `<div class="hero-company">${d.company}</div>` : ''}
