@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>asd — Özel Portföy Sunumu</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F4F6FA;color:#2C3550}
+  ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+  .rapor-card{background:white;border-radius:16px;padding:24px 28px;box-shadow:0 2px 16px rgba(0,0,0,0.06);margin-top:16px}
+  .rapor-accent{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px}
+  .rapor-accent-txt{color:#3b82f6;font-weight:700}
+  @media(max-width:600px){section div[style*="padding:28px 32px"]{padding:16px!important}h2{font-size:18px!important}}
+  @media print{
+    .no-print{display:none!important}
+    body{background:white}
+    section{box-shadow:none!important;border:1px solid #E4E8F0!important;page-break-inside:avoid}
+    .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    iframe{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO - Revy benzeri danışman kartı -->
+
+<div class="hero" style="background:linear-gradient(160deg,#0c1524 0%,#0f2040 50%,#0c1a35 100%);color:white;padding:56px 24px 40px;text-align:center">
+  <div style="max-width:560px;margin:0 auto">
+    <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px">👤</div>
+    <h1 style="font-size:28px;font-weight:800;margin:0 0 4px;letter-spacing:-0.5px">asd</h1>
+    <div style="font-size:14px;opacity:0.6;margin-bottom:16px">Gayrimenkul Danışmanı · asd</div>
+    
+    <div style="display:flex;gap:10px;justify-content:center;margin-bottom:24px">
+      <a href="https://wa.me/5393221730" style="display:flex;align-items:center;gap:6px;background:#25d366;color:white;padding:10px 20px;border-radius:24px;text-decoration:none;font-size:13px;font-weight:600">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.559 4.122 1.535 5.856L.057 23.882l6.196-1.483A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.528-5.33-1.445l-.38-.226-3.942.942.988-3.838-.247-.394A9.822 9.822 0 012.182 12c0-5.415 4.403-9.818 9.818-9.818 5.415 0 9.818 4.403 9.818 9.818 0 5.415-4.403 9.818-9.818 9.818z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:5393221730" style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:10px 20px;border-radius:24px;text-decoration:none;font-size:13px;font-weight:600">
+        📞 Ara
+      </a>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:13px;opacity:0.6">
+      Seçilmiş portföy · 24 Mart 2026 · 2 mülk
+    </div>
+  </div>
+</div>
+
+<!-- DANIŞMAN HAKKINDA -->
+<div style="max-width:860px;margin:32px auto;padding:0 16px">
+  <div style="background:white;border-radius:20px;padding:28px 32px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+      <div style="width:72px;height:72px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0">👤</div>
+      <div style="flex:1;min-width:200px">
+        <div style="font-size:12px;font-weight:700;color:#3b82f6;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Hakkımda</div>
+        <p style="color:#7A88A8;line-height:1.8;font-size:14px;margin:0 0 16px">
+          Merhaba, arayışınıza uygun olduğunu düşündüğüm <strong style="color:#2C3550">2 mülkü</strong> sizin için özenle seçip analiz ettim.
+          Her mülk için detaylı bilgiler, fotoğraflar ve yatırım analizleri aşağıda yer almaktadır.
+          İlgilendiğiniz mülkleri işaretleyebilirsiniz — en kısa sürede iletişime geçeceğim.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 16px">
+            <div style="font-size:10px;color:#7A88A8;text-transform:uppercase;font-weight:600;margin-bottom:2px">Uzmanlık</div>
+            <div style="font-size:13px;color:#2C3550;font-weight:700">Gayrimenkul Danışmanı</div>
+          </div>
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 16px">
+            <div style="font-size:10px;color:#7A88A8;text-transform:uppercase;font-weight:600;margin-bottom:2px">Ofis</div>
+            <div style="font-size:13px;color:#2C3550;font-weight:700">asd</div>
+          </div>
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 16px">
+            <div style="font-size:10px;color:#7A88A8;text-transform:uppercase;font-weight:600;margin-bottom:2px">İletişim</div>
+            <div style="font-size:13px;color:#2C3550;font-weight:700">5393221730</div>
+          </div>
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 16px">
+            <div style="font-size:10px;color:#7A88A8;text-transform:uppercase;font-weight:600;margin-bottom:2px">Portföy</div>
+            <div style="font-size:13px;color:#2C3550;font-weight:700">2 Mülk · 24 Mart 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- İÇİNDEKİLER -->
+  <div style="background:white;border-radius:16px;padding:20px 28px;box-shadow:0 2px 16px rgba(0,0,0,0.06);margin-top:16px">
+    <div style="font-size:13px;font-weight:700;color:#2C3550;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+      <span style="background:#eff6ff;padding:4px 8px;border-radius:8px;font-size:11px;color:#3b82f6">2 mülk</span>
+      📋 İlan Listesi
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="#ilan_0" style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:10px;background:#eff6ff;text-decoration:none;color:#2C3550;font-size:13px;border:1px solid #bfdbfe;transition:opacity 0.15s">
+          <span style="font-weight:500">1. İLKA DAN GÜNEY CEPHE DUBLEX DAİRE METROBÜSE 3 DAKİKA ME...</span>
+          <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+            
+            
+            <span style="color:#3b82f6;font-size:13px;font-weight:700">7.500.000 ₺</span>
+          </div>
+        </a><a href="#ilan_1" style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:10px;background:#eff6ff;text-decoration:none;color:#2C3550;font-size:13px;border:1px solid #bfdbfe;transition:opacity 0.15s">
+          <span style="font-weight:500">2. PEGAAS'TAN MUSTAFA KEMAL PAŞA MAH. ÇİFT GİRİŞLİ İSKANLI...</span>
+          <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+            
+            
+            <span style="color:#3b82f6;font-size:13px;font-weight:700">6.500.000 ₺</span>
+          </div>
+        </a>
+    </div>
+  </div>
+
+  <!-- MÜŞTERİ TALEPLERİ KARTI -->
+  
+
+  <!-- BÖLGE PİYASA ÖZETİ -->
+  <div style="background:white;border-radius:16px;padding:20px 28px;box-shadow:0 2px 16px rgba(0,0,0,0.06);margin-top:16px">
+    <div style="font-size:13px;font-weight:700;color:#2C3550;margin-bottom:14px">📊 Bölge Piyasa Özeti</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:14px">
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px;text-align:center"><div style="font-size:10px;color:#3b82f6;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px">Ort. Fiyat</div><div style="font-size:16px;font-weight:800;color:#2C3550">7.000.000 ₺</div></div>
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px;text-align:center"><div style="font-size:10px;color:#3b82f6;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px">Ort. ₺/m²</div><div style="font-size:16px;font-weight:800;color:#2C3550">35.987</div></div>
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px;text-align:center"><div style="font-size:10px;color:#3b82f6;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px">Tahmini Kira</div><div style="font-size:16px;font-weight:800;color:#2C3550">50.310 ₺</div></div>
+      
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px;text-align:center"><div style="font-size:10px;color:#3b82f6;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px">İncelenen Mülk</div><div style="font-size:16px;font-weight:800;color:#2C3550">2 Adet</div></div>
+    </div>
+    
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 16px;font-size:13px;color:#7A88A8;line-height:1.7">
+      💡 Bu portföydeki <strong style="color:#2C3550">2 mülkün</strong> ortalama m² fiyatı <strong style="color:#3b82f6">35.987 ₺/m²</strong>, tahmini kira getirisi <strong style="color:#3b82f6">50.310 ₺/ay</strong> düzeyindedir.
+      
+    </div>
+  </div>
+</div>
+
+<!-- İLANLAR -->
+<div style="max-width:860px;margin:0 auto;padding:0 16px">
+
+  <!-- EMSAL KARŞILAŞTIRMA TABLOSU -->
+  
+  <div style="background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.07);margin-bottom:32px;overflow:hidden">
+    <div style="background:linear-gradient(135deg,#4F7EC8,#3560A8);padding:20px 28px">
+      <h2 style="margin:0;font-size:18px;font-weight:800;color:white">📊 Emsal Karşılaştırma</h2>
+      <div style="color:rgba(255,255,255,0.8);font-size:13px;margin-top:4px">Seçilen 2 mülkün yan yana analizi</div>
+    </div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="background:#F4F6FA;border-bottom:2px solid #E4E8F0">
+            <th style="text-align:left;padding:12px 16px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;min-width:180px">Mülk</th>
+            <th style="text-align:right;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Fiyat</th>
+            <th style="text-align:right;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">m²</th>
+            <th style="text-align:right;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">₺/m²</th>
+            <th style="text-align:center;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Oda</th>
+            <th style="text-align:center;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Kat</th>
+            <th style="text-align:center;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Bina Yaşı</th>
+            <th style="text-align:right;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Tahmini Kira</th>
+            <th style="text-align:right;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Aylık Yük*</th>
+            <th style="text-align:center;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Bina</th>
+            <th style="text-align:center;padding:12px 14px;font-size:11px;color:#7A88A8;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap">Skor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #f1f5f9;background:white;transition:background 0.15s">
+              <td style="padding:12px 16px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg" style="width:48px;height:36px;object-fit:cover;border-radius:6px;flex-shrink:0">
+                  <div>
+                    <div style="font-weight:600;color:#2C3550;font-size:12px;line-height:1.4">1. İLKA DAN GÜNEY CEPHE DUBLEX DAİRE METROB…</div>
+                    <div style="font-size:11px;color:#B0BBC8;margin-top:2px"></div>
+                  </div>
+                </div>
+              </td>
+              <td style="text-align:right;padding:12px 14px;font-weight:700;color:#2C3550;white-space:nowrap">7.500.000 ₺</td>
+              <td style="text-align:right;padding:12px 14px;color:#7A88A8;white-space:nowrap">190 m²</td>
+              <td style="text-align:right;padding:12px 14px;color:#7A88A8;white-space:nowrap">39.474</td>
+              <td style="text-align:center;padding:12px 14px;color:#7A88A8">4+2</td>
+              <td style="text-align:center;padding:12px 14px;color:#7A88A8">4. Kat</td>
+              <td style="text-align:center;padding:12px 14px;color:#7A88A8">11 yıl</td>
+              <td style="text-align:right;padding:12px 14px;color:#7A88A8;white-space:nowrap">49.020 ₺</td>
+              <td style="text-align:right;padding:12px 14px;color:#dc2626;font-weight:600;white-space:nowrap">51.030 ₺</td>
+              <td style="text-align:center;padding:12px 14px">
+                <div style="display:inline-flex;align-items:center;gap:4px;background:#94a3b818;border:1px solid #94a3b855;border-radius:12px;padding:3px 8px">
+                      <div style="width:6px;height:6px;border-radius:50%;background:#94a3b8;flex-shrink:0"></div>
+                      <span style="font-size:11px;font-weight:600;color:#94a3b8;white-space:nowrap">belirsiz</span>
+                     </div>
+              </td>
+              <td style="text-align:center;padding:12px 14px">
+                <span style="background:#FEF8E8;color:#C88A20;font-weight:800;font-size:15px;width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center">C</span>
+              </td>
+            </tr><tr style="border-bottom:1px solid #f1f5f9;background:#fafbfc;transition:background 0.15s">
+              <td style="padding:12px 16px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg" style="width:48px;height:36px;object-fit:cover;border-radius:6px;flex-shrink:0">
+                  <div>
+                    <div style="font-weight:600;color:#2C3550;font-size:12px;line-height:1.4">2. PEGAAS'TAN MUSTAFA KEMAL PAŞA MAH. ÇİFT …</div>
+                    <div style="font-size:11px;color:#B0BBC8;margin-top:2px"></div>
+                  </div>
+                </div>
+              </td>
+              <td style="text-align:right;padding:12px 14px;font-weight:700;color:#2C3550;white-space:nowrap">6.500.000 ₺</td>
+              <td style="text-align:right;padding:12px 14px;color:#7A88A8;white-space:nowrap">200 m²</td>
+              <td style="text-align:right;padding:12px 14px;color:#7A88A8;white-space:nowrap">32.500</td>
+              <td style="text-align:center;padding:12px 14px;color:#7A88A8">4+2</td>
+              <td style="text-align:center;padding:12px 14px;color:#7A88A8">2. Kat</td>
+              <td style="text-align:center;padding:12px 14px;color:#7A88A8">6 yıl</td>
+              <td style="text-align:right;padding:12px 14px;color:#7A88A8;white-space:nowrap">51.600 ₺</td>
+              <td style="text-align:right;padding:12px 14px;color:#dc2626;font-weight:600;white-space:nowrap">44.650 ₺</td>
+              <td style="text-align:center;padding:12px 14px">
+                <div style="display:inline-flex;align-items:center;gap:4px;background:#94a3b818;border:1px solid #94a3b855;border-radius:12px;padding:3px 8px">
+                      <div style="width:6px;height:6px;border-radius:50%;background:#94a3b8;flex-shrink:0"></div>
+                      <span style="font-size:11px;font-weight:600;color:#94a3b8;white-space:nowrap">belirsiz</span>
+                     </div>
+              </td>
+              <td style="text-align:center;padding:12px 14px">
+                <span style="background:#E5F9F1;color:#2A9D6A;font-weight:800;font-size:15px;width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center">A</span>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Özet istatistik barı -->
+    <div style="display:flex;flex-wrap:wrap;gap:0;border-top:2px solid #e2e8f0">
+      <div style="flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #f1f5f9;text-align:center">
+          <div style="font-size:10px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">Ort. Fiyat</div>
+          <div style="font-size:14px;font-weight:700;color:#2C3550">7.000.000 ₺</div>
+        </div><div style="flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #f1f5f9;text-align:center">
+          <div style="font-size:10px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">Min Fiyat</div>
+          <div style="font-size:14px;font-weight:700;color:#2C3550">6.500.000 ₺</div>
+        </div><div style="flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #f1f5f9;text-align:center">
+          <div style="font-size:10px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">Max Fiyat</div>
+          <div style="font-size:14px;font-weight:700;color:#2C3550">7.500.000 ₺</div>
+        </div><div style="flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #f1f5f9;text-align:center">
+          <div style="font-size:10px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">Ort. ₺/m²</div>
+          <div style="font-size:14px;font-weight:700;color:#2C3550">35.987</div>
+        </div><div style="flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #f1f5f9;text-align:center">
+          <div style="font-size:10px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">Ort. Kira</div>
+          <div style="font-size:14px;font-weight:700;color:#2C3550">50.310 ₺</div>
+        </div><div style="flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #f1f5f9;text-align:center">
+          <div style="font-size:10px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">Ort. Aylık Yük</div>
+          <div style="font-size:14px;font-weight:700;color:#2C3550">47.840 ₺</div>
+        </div>
+    </div>
+    <div style="padding:10px 20px;font-size:11px;color:#B0BBC8;border-top:1px solid #EAEEf4">
+      * Aylık yük tahmini: aidat + kredi taksiti (ort. %0.65 faiz) + elektrik/su tahmini (12₺/m²). Gerçek değerler farklılık gösterebilir.
+    </div>
+  </div>
+
+  <!-- PAZARLAMA PLANI -->
+  
+
+  
+      <!-- İLAN 1 -->
+      <section id="ilan_0" style="background:white;border-radius:20px;box-shadow:0 4px 30px rgba(0,0,0,0.08);margin-bottom:40px;overflow:visible">
+
+        
+        <div style="position:relative;background:#111;border-radius:16px 16px 0 0;line-height:0">
+          <img id="cover_0" src="https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg" draggable="false"
+            style="width:100%;height:360px;object-fit:cover;display:block;cursor:zoom-in;-webkit-user-drag:none;user-select:none">
+          
+          <button id="prev_0"
+            style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.75);border:2px solid rgba(255,255,255,0.3);color:white;width:52px;height:52px;border-radius:50%;font-size:28px;cursor:pointer;line-height:1;z-index:50">‹</button>
+          <button id="next_0"
+            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.75);border:2px solid rgba(255,255,255,0.3);color:white;width:52px;height:52px;border-radius:50%;font-size:28px;cursor:pointer;line-height:1;z-index:50">›</button>
+          
+          <div style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.75);color:white;border-radius:6px;padding:5px 12px;font-size:12px;z-index:10;line-height:1.4;pointer-events:none">
+            📷 <span id="coverIdx_0">1</span> / 8
+          </div>
+        </div>
+        
+        <div id="thumbRow_0" style="display:flex;gap:4px;overflow-x:auto;background:#000;padding:8px;-webkit-overflow-scrolling:touch;line-height:0">
+          <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg" draggable="false" id="thumb_0_0"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:1;border:2px solid #3b82f6;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097ycj.jpg" draggable="false" id="thumb_0_1"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097geo.jpg" draggable="false" id="thumb_0_2"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097gf5.jpg" draggable="false" id="thumb_0_3"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097m2x.jpg" draggable="false" id="thumb_0_4"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097oz6.jpg" draggable="false" id="thumb_0_5"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097bwf.jpg" draggable="false" id="thumb_0_6"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097179.jpg" draggable="false" id="thumb_0_7"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none">
+        </div>
+        <!-- Lightbox -->
+        <div id="lightbox_0"
+          style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999999;flex-direction:column;align-items:center;justify-content:center">
+          <button id="lbClose_0"
+            style="position:fixed;top:16px;right:20px;background:rgba(255,255,255,0.2);border:none;color:white;width:48px;height:48px;border-radius:50%;font-size:26px;cursor:pointer;z-index:1000001">×</button>
+          <button id="lbPrev_0"
+            style="position:fixed;left:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);border:none;color:white;width:56px;height:56px;border-radius:50%;font-size:30px;cursor:pointer;z-index:1000001">‹</button>
+          <button id="lbNext_0"
+            style="position:fixed;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);border:none;color:white;width:56px;height:56px;border-radius:50%;font-size:30px;cursor:pointer;z-index:1000001">›</button>
+          <img id="lbImg_0" draggable="false" style="max-height:82vh;max-width:88vw;object-fit:contain;border-radius:8px;pointer-events:none;-webkit-user-drag:none">
+          <div style="display:flex;gap:5px;margin-top:12px;overflow-x:auto;max-width:95vw;padding:4px;line-height:0">
+            <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg" draggable="false" id="lbThumb_0_0"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:1;border:2px solid #3b82f6;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097ycj.jpg" draggable="false" id="lbThumb_0_1"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097geo.jpg" draggable="false" id="lbThumb_0_2"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097gf5.jpg" draggable="false" id="lbThumb_0_3"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097m2x.jpg" draggable="false" id="lbThumb_0_4"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097oz6.jpg" draggable="false" id="lbThumb_0_5"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097bwf.jpg" draggable="false" id="lbThumb_0_6"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097179.jpg" draggable="false" id="lbThumb_0_7"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none">
+          </div>
+        </div>
+
+        <!-- Lightbox overlay -->
+        <div id="lightbox_0" data-lightbox="0"
+          style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center;flex-direction:column">
+          <img id="lbImg_0" style="max-height:82vh;max-width:95vw;border-radius:8px;object-fit:contain">
+          <div style="display:flex;gap:6px;margin-top:10px;overflow-x:auto;max-width:95vw;padding:4px">
+            
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:1;border:2px solid #3b82f6">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097ycj.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097ycj.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097geo.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097geo.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097gf5.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097gf5.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097m2x.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097m2x.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097oz6.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097oz6.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097bwf.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097bwf.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/52/10/97/big_1305521097179.jpg" data-lbthumb="0" data-src="https://i0.shbdn.com/photos/52/10/97/big_1305521097179.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+          </div>
+        </div>
+
+        <div style="padding:28px 32px">
+          <!-- Başlık satırı -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:12px">
+            <div style="flex:1;min-width:200px">
+              <div style="font-size:11px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">İlan 1 / 2</div>
+              <h2 style="margin:0;font-size:22px;color:#2C3550;font-weight:800;line-height:1.3">İLKA DAN GÜNEY CEPHE DUBLEX DAİRE METROBÜSE 3 DAKİKA MESAFE'DE</h2>
+              <div style="color:#7A88A8;font-size:14px;margin-top:6px">📍 40.9983,28.7083 — </div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:28px;font-weight:800;color:#2C3550">7.500.000 ₺</div>
+              <div style="font-size:13px;color:#7A88A8">39.474 ₺/m²</div>
+              <div style="margin-top:8px;background:#ca8a04;color:white;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block">C · 51/100 Yatırım Skoru</div>
+            </div>
+          </div>
+
+          <!-- Hızlı özellikler şeridi -->
+          <div style="display:flex;flex-wrap:wrap;gap:10px;padding:14px 0;border-top:1px solid #f1f5f9;border-bottom:1px solid #f1f5f9;margin:16px 0">
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">🛏</div><div style="font-size:12px;font-weight:700;color:#2C3550">4+2</div><div style="font-size:10px;color:#B0BBC8">Oda</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">📐</div><div style="font-size:12px;font-weight:700;color:#2C3550">190 m²</div><div style="font-size:10px;color:#B0BBC8">Brüt m²</div></div>
+            
+            
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">🔑</div><div style="font-size:12px;font-weight:700;color:#3BAB84">49.020 ₺/ay</div><div style="font-size:10px;color:#B0BBC8">Tahmini Kira</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">📈</div><div style="font-size:12px;font-weight:700;color:#5F87C6">%7.8</div><div style="font-size:10px;color:#B0BBC8">Yıllık Getiri</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">⏱</div><div style="font-size:12px;font-weight:700;color:#9B8FD4">13 yıl</div><div style="font-size:10px;color:#B0BBC8">Amortisman</div></div>
+            
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">💳</div><div style="font-size:12px;font-weight:700;color:var(--danger2)">51.030 ₺</div><div style="font-size:10px;color:#B0BBC8">Aylık Yük*</div></div>
+          </div>
+
+          <!-- Bina Güvenlik + Pazarlık Rozet Satırı -->
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            
+            
+              <div style="display:flex;align-items:center;gap:6px;background:#fefce8;border:1px solid #fde68a;border-radius:20px;padding:5px 12px">
+                <span style="font-size:12px;font-weight:600;color:#ca8a04">🤝 Orta Pazarlık</span>
+                <span style="font-size:11px;color:#7A88A8">— Sınırlı pazarlık alanı</span>
+              </div>
+            
+              <div style="display:flex;align-items:center;gap:6px;background:#EBF1FA;border:1px solid rgba(123,159,212,0.2);border-radius:20px;padding:5px 12px">
+                <span style="font-size:11px;color:#7A88A8">📅 9 gündür ilanda</span>
+              </div>
+          </div>
+
+          <!-- Açıklama -->
+          
+          <div style="margin-bottom:24px">
+            <h3 style="margin:0 0 10px;font-size:16px;color:#2C3550;font-weight:700">📋 Açıklama</h3>
+            <p style="margin:0;color:#7A88A8;font-size:14px;line-height:1.7;white-space:pre-line">İLKA GAYRİMENKUL AİLESİ FARKINDALIĞIYLA.. SATILIK VE KİRALIK GAYRİMENKULLERİNİZE ÜCRETSİZ EKSPERTİZ HİZMETİ VERİLİR. İSTERSENİZ KENDİNİZ TAŞININ YADA HEMEN KİRAYA VERELİM… DİĞER İLANLARIMIZ İÇİN TIKLAYIN !</p>
+          </div>
+
+          <!-- Özellikler -->
+          
+          <div style="margin-bottom:24px">
+            <h3 style="margin:0 0 14px;font-size:16px;color:#2C3550;font-weight:700">🏠 Özellikler</h3>
+            
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Cephe</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Güney</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Dış Özellikler</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Uydu</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Engelliye ve Yaşlıya Uygun</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Merdiven</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Oda Kapısı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Tuvalet</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Konut Tipi</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Dubleks</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Manzara</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Boğaz</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Deniz</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Doğa</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Göl</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Havuz</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Nehir</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Park & Yeşil Alan</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Şehir</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Muhit</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Alışveriş Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Belediye</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Cami</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Eczane</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Eğlence Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Hastane</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">İlkokul-Ortaokul</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">İtfaiye</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Lise</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Market</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Park</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Polis Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Sağlık Ocağı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Semt Pazarı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Spor Salonu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Şehir Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Üniversite</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Ulaşım</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Anayol</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Cadde</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Dolmuş</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">E-5</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Metrobüs</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Minibüs</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Otobüs Durağı</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">İç Özellikler</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Duşakabin</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Teras</span>
+          </div>
+        </div>
+          </div>
+
+
+          
+        <div style="margin-top:24px">
+          <h3 style="margin:0 0 12px;font-size:16px;color:#2C3550;font-weight:700">📍 Konum</h3>
+          <div style="font-size:13px;color:#7A88A8;margin-bottom:10px;background:#EBF1FA;padding:8px 14px;border-radius:8px;border-left:3px solid #7B9FD4">📌 Avcılar › Mustafa Kemal Paşa Mh.</div>
+          <div style="font-size:11px;color:#B0BBC8;margin-bottom:8px">🌐 40.998255, 28.708334</div>
+          <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1)">
+            <iframe src="https://www.google.com/maps?q=40.998255,28.708334&z=17&output=embed"
+              width="100%" height="280" style="border:0;display:block" loading="lazy" allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=40.998255,28.708334" target="_blank"
+            style="display:inline-block;margin-top:8px;font-size:12px;color:#3b82f6;text-decoration:none">🗺 Google Maps'te Aç →</a>
+        </div>
+
+          <!-- İlgileniyorum butonu -->
+          <div style="margin-top:28px;padding:20px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-radius:14px;text-align:center;border:1px solid #bae6fd">
+            <div style="font-size:14px;color:#0369a1;margin-bottom:12px">Bu mülk ilginizi çekiyor mu?</div>
+            <button id="ilgiBtn_0" data-active="0"
+              data-title="İLKA DAN GÜNEY CEPHE DUBLEX DAİRE METROBÜSE 3 DAKİKA MESAFE'DE"
+              data-price="7.500.000 ₺"
+              data-phone="5393221730" data-agent="asd"
+              style="background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;border:none;padding:14px 36px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(37,99,235,0.4);transition:all 0.2s">
+              ☐ Bu İlanla İlgileniyorum
+            </button>
+            <div style="font-size:11px;color:#B0BBC8;margin-top:8px">Butona basınca danışmanınıza WhatsApp mesajı gönderilecek</div>
+          </div>
+        </div>
+      </section>
+      <!-- İLAN 2 -->
+      <section id="ilan_1" style="background:white;border-radius:20px;box-shadow:0 4px 30px rgba(0,0,0,0.08);margin-bottom:40px;overflow:visible">
+
+        
+        <div style="position:relative;background:#111;border-radius:16px 16px 0 0;line-height:0">
+          <img id="cover_1" src="https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg" draggable="false"
+            style="width:100%;height:360px;object-fit:cover;display:block;cursor:zoom-in;-webkit-user-drag:none;user-select:none">
+          
+          <button id="prev_1"
+            style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.75);border:2px solid rgba(255,255,255,0.3);color:white;width:52px;height:52px;border-radius:50%;font-size:28px;cursor:pointer;line-height:1;z-index:50">‹</button>
+          <button id="next_1"
+            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.75);border:2px solid rgba(255,255,255,0.3);color:white;width:52px;height:52px;border-radius:50%;font-size:28px;cursor:pointer;line-height:1;z-index:50">›</button>
+          
+          <div style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.75);color:white;border-radius:6px;padding:5px 12px;font-size:12px;z-index:10;line-height:1.4;pointer-events:none">
+            📷 <span id="coverIdx_1">1</span> / 8
+          </div>
+        </div>
+        
+        <div id="thumbRow_1" style="display:flex;gap:4px;overflow-x:auto;background:#000;padding:8px;-webkit-overflow-scrolling:touch;line-height:0">
+          <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg" draggable="false" id="thumb_1_0"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:1;border:2px solid #3b82f6;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_120681402840v.jpg" draggable="false" id="thumb_1_1"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028zj2.jpg" draggable="false" id="thumb_1_2"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028bjd.jpg" draggable="false" id="thumb_1_3"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028b04.jpg" draggable="false" id="thumb_1_4"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028ohk.jpg" draggable="false" id="thumb_1_5"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_120681402816x.jpg" draggable="false" id="thumb_1_6"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028dor.jpg" draggable="false" id="thumb_1_7"
+            style="height:72px;width:108px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.5;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none">
+        </div>
+        <!-- Lightbox -->
+        <div id="lightbox_1"
+          style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999999;flex-direction:column;align-items:center;justify-content:center">
+          <button id="lbClose_1"
+            style="position:fixed;top:16px;right:20px;background:rgba(255,255,255,0.2);border:none;color:white;width:48px;height:48px;border-radius:50%;font-size:26px;cursor:pointer;z-index:1000001">×</button>
+          <button id="lbPrev_1"
+            style="position:fixed;left:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);border:none;color:white;width:56px;height:56px;border-radius:50%;font-size:30px;cursor:pointer;z-index:1000001">‹</button>
+          <button id="lbNext_1"
+            style="position:fixed;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);border:none;color:white;width:56px;height:56px;border-radius:50%;font-size:30px;cursor:pointer;z-index:1000001">›</button>
+          <img id="lbImg_1" draggable="false" style="max-height:82vh;max-width:88vw;object-fit:contain;border-radius:8px;pointer-events:none;-webkit-user-drag:none">
+          <div style="display:flex;gap:5px;margin-top:12px;overflow-x:auto;max-width:95vw;padding:4px;line-height:0">
+            <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg" draggable="false" id="lbThumb_1_0"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:1;border:2px solid #3b82f6;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_120681402840v.jpg" draggable="false" id="lbThumb_1_1"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028zj2.jpg" draggable="false" id="lbThumb_1_2"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028bjd.jpg" draggable="false" id="lbThumb_1_3"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028b04.jpg" draggable="false" id="lbThumb_1_4"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028ohk.jpg" draggable="false" id="lbThumb_1_5"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_120681402816x.jpg" draggable="false" id="lbThumb_1_6"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none"><img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028dor.jpg" draggable="false" id="lbThumb_1_7"
+              style="height:56px;width:84px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;opacity:0.45;border:2px solid transparent;transition:all 0.15s;-webkit-user-drag:none">
+          </div>
+        </div>
+
+        <!-- Lightbox overlay -->
+        <div id="lightbox_1" data-lightbox="1"
+          style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center;flex-direction:column">
+          <img id="lbImg_1" style="max-height:82vh;max-width:95vw;border-radius:8px;object-fit:contain">
+          <div style="display:flex;gap:6px;margin-top:10px;overflow-x:auto;max-width:95vw;padding:4px">
+            
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:1;border:2px solid #3b82f6">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_120681402840v.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_120681402840v.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028zj2.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_1206814028zj2.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028bjd.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_1206814028bjd.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028b04.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_1206814028b04.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028ohk.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_1206814028ohk.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_120681402816x.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_120681402816x.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+              <img src="https://i0.shbdn.com/photos/81/40/28/big_1206814028dor.jpg" data-lbthumb="1" data-src="https://i0.shbdn.com/photos/81/40/28/big_1206814028dor.jpg"
+                style="height:60px;width:90px;object-fit:cover;border-radius:6px;cursor:pointer;flex-shrink:0;opacity:0.6;border:2px solid transparent">
+          </div>
+        </div>
+
+        <div style="padding:28px 32px">
+          <!-- Başlık satırı -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:12px">
+            <div style="flex:1;min-width:200px">
+              <div style="font-size:11px;color:#B0BBC8;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">İlan 2 / 2</div>
+              <h2 style="margin:0;font-size:22px;color:#2C3550;font-weight:800;line-height:1.3">PEGAAS'TAN MUSTAFA KEMAL PAŞA MAH. ÇİFT GİRİŞLİ İSKANLI DUBLEKS*</h2>
+              <div style="color:#7A88A8;font-size:14px;margin-top:6px">📍 41.0047,28.7001 — </div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:28px;font-weight:800;color:#2C3550">6.500.000 ₺</div>
+              <div style="font-size:13px;color:#7A88A8">32.500 ₺/m²</div>
+              <div style="margin-top:8px;background:#16a34a;color:white;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block">A · 81/100 Yatırım Skoru</div>
+            </div>
+          </div>
+
+          <!-- Hızlı özellikler şeridi -->
+          <div style="display:flex;flex-wrap:wrap;gap:10px;padding:14px 0;border-top:1px solid #f1f5f9;border-bottom:1px solid #f1f5f9;margin:16px 0">
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">🛏</div><div style="font-size:12px;font-weight:700;color:#2C3550">4+2</div><div style="font-size:10px;color:#B0BBC8">Oda</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">📐</div><div style="font-size:12px;font-weight:700;color:#2C3550">200 m²</div><div style="font-size:10px;color:#B0BBC8">Brüt m²</div></div>
+            
+            
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">🔑</div><div style="font-size:12px;font-weight:700;color:#3BAB84">51.600 ₺/ay</div><div style="font-size:10px;color:#B0BBC8">Tahmini Kira</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">📈</div><div style="font-size:12px;font-weight:700;color:#5F87C6">%9.5</div><div style="font-size:10px;color:#B0BBC8">Yıllık Getiri</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">⏱</div><div style="font-size:12px;font-weight:700;color:#9B8FD4">10 yıl</div><div style="font-size:10px;color:#B0BBC8">Amortisman</div></div>
+            
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:70px"><div style="font-size:18px">💳</div><div style="font-size:12px;font-weight:700;color:var(--danger2)">44.650 ₺</div><div style="font-size:10px;color:#B0BBC8">Aylık Yük*</div></div>
+          </div>
+
+          <!-- Bina Güvenlik + Pazarlık Rozet Satırı -->
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+            
+            
+              <div style="display:flex;align-items:center;gap:6px;background:#fefce8;border:1px solid #fde68a;border-radius:20px;padding:5px 12px">
+                <span style="font-size:12px;font-weight:600;color:#ca8a04">🤝 Orta Pazarlık</span>
+                <span style="font-size:11px;color:#7A88A8">— 31 gündür ilanda → küçük pazarlık mümkün</span>
+              </div>
+            
+              <div style="display:flex;align-items:center;gap:6px;background:#EBF1FA;border:1px solid rgba(123,159,212,0.2);border-radius:20px;padding:5px 12px">
+                <span style="font-size:11px;color:#7A88A8">📅 31 gündür ilanda</span>
+              </div>
+          </div>
+
+          <!-- Açıklama -->
+          
+          <div style="margin-bottom:24px">
+            <h3 style="margin:0 0 10px;font-size:16px;color:#2C3550;font-weight:700">📋 Açıklama</h3>
+            <p style="margin:0;color:#7A88A8;font-size:14px;line-height:1.7;white-space:pre-line">PEGAAS'TAN AVCILAR MUSTAFA KEMAL PAŞA MAHALLESİNDE (KONUM DOĞRUDUR) METROBÜSE MAX 14 DK YÜRÜME MESAFESİNDE 6 YILLIK YENİ BİNADA 4+2 DUBLEX DAİRE HEM İÇTEN MERDİVENLİDİR, HEM DE HER 2 KATTAN AYRI GİRİŞİ VARDIR ALT KAT 2+1 AYRI MUTFAKLI BALKONLU ÜST KAT 2+1 AYRI MUTFAKLI TERASLI HER İKİ KATTA DA BANYO VE MUTFAK MEVCUTTUR DAİRE OLDUKÇA TEMİZ VE MASRAFSIZDIR KREDİYE UYGUNDUR KAT MÜLKİYETLİDİR İSKANLIDIR DAİRE FOTOLARI BOŞKEN ÇEKİLMİŞTİR, DAİREDE MÜLK SAHİBİ YAŞAMAKTADIR. RANDEVULU SUNUM YAPILMAKTADIR NOT: İLANDA DAİRENİN DETAYLI VİDEOSU MEVCUTTUR, VİDEOMUZU İZLEMENİZİ ÖNERİRİZ DETAYLI BİLGİ VE SUNUM İÇİN ARAYINIZ __EMLAKÇI YER GÖSTERİR DANIŞMAN YOL GÖSTERİR... PEGAAS GAYRİMENKUL OLARAK UZMAN KADROMUZLA GAYRİMENKUL DANIŞMANLIĞINIZI ÜSTLENİP YOL GÖSTERENİNİZ OLALIM... UNUTMAYIN HAYAT DOĞRU TERCİHLERLE GÜZELDİR... __PEGAAS GAYRİMENKUL FARKIYLA__ ***KRİTERLERİNİZE UYGUN SATILIK-KİRALIK DAİRELER İÇİN TERCİHİNİZ PEGAAS OLMALI*** __BİZE DANIŞMADAN EV ALMAYIN__ DETAYLI BİLGİ VE SUNUM İÇİN ARAYINIZ PEGAAS GAYRİMENKUL SAİT KAPAN 0531 655 25 54 0212 590 38 08</p>
+          </div>
+
+          <!-- Özellikler -->
+          
+          <div style="margin-bottom:24px">
+            <h3 style="margin:0 0 14px;font-size:16px;color:#2C3550;font-weight:700">🏠 Özellikler</h3>
+            
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Cephe</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Güney</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Dış Özellikler</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Araç Şarj İstasyonu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">24 Saat Güvenlik</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Apartman Görevlisi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Buhar Odası</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Çocuk Oyun Parkı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Hamam</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Hidrofor</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Isı Yalıtımı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Jeneratör</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kablo TV</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kamera Sistemi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Köpek Parkı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kreş</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Müstakil Havuzlu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Sauna</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Ses Yalıtımı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Siding</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Spor Alanı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Su Deposu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Tenis Kortu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Uydu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Yangın Merdiveni</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Yüzme Havuzu (Açık)</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Yüzme Havuzu (Kapalı)</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Engelliye ve Yaşlıya Uygun</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Araç Park Yeri</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Engelliye Uygun Asansör</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Engelliye Uygun Banyo</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Engelliye Uygun Mutfak</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Engelliye Uygun Park</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Geniş Koridor</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Giriş / Rampa</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Merdiven</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Oda Kapısı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Priz / Elektrik Anahtarı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Tutamak / Korkuluk</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Tuvalet</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Yüzme Havuzu</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Konut Tipi</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Çatı Dubleksi</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Manzara</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Boğaz</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Deniz</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Doğa</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Göl</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Havuz</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Nehir</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Park & Yeşil Alan</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Şehir</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Muhit</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Alışveriş Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Belediye</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Cami</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Cemevi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Denize Sıfır</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Eczane</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Eğlence Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Fuar</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Göle Sıfır</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Hastane</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Havra</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">İlkokul-Ortaokul</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">İtfaiye</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kilise</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Lise</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Market</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Park</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Plaj</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Polis Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Sağlık Ocağı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Semt Pazarı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Spor Salonu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Şehir Merkezi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Üniversite</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">Ulaşım</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Anayol</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Avrasya Tüneli</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Boğaz Köprüleri</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Cadde</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Deniz Otobüsü</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Dolmuş</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">E-5</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Havaalanı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">İskele</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Marmaray</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Metro</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Metrobüs</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Minibüs</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Otobüs Durağı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Sahil</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">TEM</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Tramvay</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Tren İstasyonu</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <h4 style="margin:0 0 8px;font-size:11px;color:#7A88A8;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;border-bottom:1px solid #e2e8f0;padding-bottom:4px">İç Özellikler</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">ADSL</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Ahşap Doğrama</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Akıllı Ev</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Alarm (Hırsız)</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Alarm (Yangın)</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Alaturka Tuvalet</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Alüminyum Doğrama</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Amerikan Kapı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Ankastre Fırın</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Barbekü</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Beyaz Eşya</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Boyalı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Bulaşık Makinesi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Buzdolabı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Çamaşır Kurutma Makinesi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Çamaşır Makinesi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Çamaşır Odası</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Çelik Kapı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Duşakabin</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Duvar Kağıdı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Ebeveyn Banyosu</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Fırın</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Fiber İnternet</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Giyinme Odası</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Gömme Dolap</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Görüntülü Diyafon</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Hilton Banyo</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Intercom Sistemi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Isıcam</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Jakuzi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kapalı / Cam Balkon</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kartonpiyer</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Kiler</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Klima</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Küvet</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Laminat Zemin</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Marley</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Mobilya</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Mutfak (Ankastre)</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Mutfak (Laminat)</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Mutfak Doğalgazı</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Panjur/Jaluzi</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Parke Zemin</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">PVC Doğrama</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Seramik Zemin</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Set Üstü Ocak</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Spot Aydınlatma</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Şofben</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Şömine</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Teras</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Termosifon</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Vestiyer</span><span style="background:#f0f9ff;color:#0369a1;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid #bae6fd">Yüz Tanıma & Parmak İzi</span>
+          </div>
+        </div>
+          </div>
+
+
+          
+        <div style="margin-top:24px">
+          <h3 style="margin:0 0 12px;font-size:16px;color:#2C3550;font-weight:700">📍 Konum</h3>
+          <div style="font-size:13px;color:#7A88A8;margin-bottom:10px;background:#EBF1FA;padding:8px 14px;border-radius:8px;border-left:3px solid #7B9FD4">📌 Avcılar › Mustafa Kemal Paşa Mh.</div>
+          <div style="font-size:11px;color:#B0BBC8;margin-bottom:8px">🌐 41.004705, 28.700093</div>
+          <div style="border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1)">
+            <iframe src="https://www.google.com/maps?q=41.004705,28.700093&z=17&output=embed"
+              width="100%" height="280" style="border:0;display:block" loading="lazy" allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=41.004705,28.700093" target="_blank"
+            style="display:inline-block;margin-top:8px;font-size:12px;color:#3b82f6;text-decoration:none">🗺 Google Maps'te Aç →</a>
+        </div>
+
+          <!-- İlgileniyorum butonu -->
+          <div style="margin-top:28px;padding:20px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-radius:14px;text-align:center;border:1px solid #bae6fd">
+            <div style="font-size:14px;color:#0369a1;margin-bottom:12px">Bu mülk ilginizi çekiyor mu?</div>
+            <button id="ilgiBtn_1" data-active="0"
+              data-title="PEGAAS'TAN MUSTAFA KEMAL PAŞA MAH. ÇİFT GİRİŞLİ İSKANLI DUBLEKS*"
+              data-price="6.500.000 ₺"
+              data-phone="5393221730" data-agent="asd"
+              style="background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;border:none;padding:14px 36px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(37,99,235,0.4);transition:all 0.2s">
+              ☐ Bu İlanla İlgileniyorum
+            </button>
+            <div style="font-size:11px;color:#B0BBC8;margin-top:8px">Butona basınca danışmanınıza WhatsApp mesajı gönderilecek</div>
+          </div>
+        </div>
+      </section>
+</div>
+
+<!-- FOOTER / İLETİŞİM -->
+<div style="background:linear-gradient(160deg,#0c1524,#0f2040);color:white;padding:56px 24px;text-align:center;margin-top:40px">
+  <div style="max-width:500px;margin:0 auto">
+    <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px">👤</div>
+    <h2 style="font-size:22px;font-weight:800;margin:0 0 4px">asd</h2>
+    <div style="opacity:0.6;font-size:13px;margin-bottom:24px">Gayrimenkul Danışmanı · asd</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
+      <a href="https://wa.me/5393221730" style="display:flex;align-items:center;gap:6px;background:#25d366;color:white;padding:12px 24px;border-radius:24px;font-size:14px;font-weight:600;text-decoration:none">💬 WhatsApp ile İletişim</a>
+      <a href="tel:5393221730" style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:12px 24px;border-radius:24px;font-size:14px;font-weight:600;text-decoration:none">📞 Ara</a>
+    </div>
+    <div style="font-size:11px;opacity:0.3">Bu sunum asd tarafından özenle hazırlanmıştır. Mülk kaynak bağlantıları gizlidir.</div>
+    
+  </div>
+</div>
+
+<script>
+(function() {
+var _photos = {"0":["https://i0.shbdn.com/photos/52/10/97/big_1305521097c5s.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097ycj.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097geo.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097gf5.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097m2x.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097oz6.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097bwf.jpg","https://i0.shbdn.com/photos/52/10/97/big_1305521097179.jpg"],"1":["https://i0.shbdn.com/photos/81/40/28/big_1206814028xh9.jpg","https://i0.shbdn.com/photos/81/40/28/big_120681402840v.jpg","https://i0.shbdn.com/photos/81/40/28/big_1206814028zj2.jpg","https://i0.shbdn.com/photos/81/40/28/big_1206814028bjd.jpg","https://i0.shbdn.com/photos/81/40/28/big_1206814028b04.jpg","https://i0.shbdn.com/photos/81/40/28/big_1206814028ohk.jpg","https://i0.shbdn.com/photos/81/40/28/big_120681402816x.jpg","https://i0.shbdn.com/photos/81/40/28/big_1206814028dor.jpg"]};
+var _idx = {};
+
+function gSet(n, ti) {
+  var p = _photos[n]; if (!p || ti < 0 || ti >= p.length) return;
+  _idx[n] = ti;
+  var cov = document.getElementById('cover_' + n);
+  if (cov) cov.src = p[ti];
+  var cnt = document.getElementById('coverIdx_' + n);
+  if (cnt) cnt.textContent = ti + 1;
+  var row = document.getElementById('thumbRow_' + n);
+  if (row) row.querySelectorAll('img').forEach(function(t, i) {
+    t.style.opacity = i === ti ? '1' : '0.5';
+    t.style.borderColor = i === ti ? '#3b82f6' : 'transparent';
+  });
+}
+function lbSet(n, ti) {
+  var p = _photos[n]; if (!p || ti < 0 || ti >= p.length) return;
+  _idx[n] = ti;
+  var img = document.getElementById('lbImg_' + n);
+  if (img) img.src = p[ti];
+  for (var i = 0; i < p.length; i++) {
+    var t = document.getElementById('lbThumb_' + n + '_' + i);
+    if (t) { t.style.opacity = i === ti ? '1' : '0.45'; t.style.borderColor = i === ti ? '#3b82f6' : 'transparent'; }
+  }
+}
+function lbOpen(n) {
+  var lb = document.getElementById('lightbox_' + n); if (!lb) return;
+  lb.style.display = 'flex';
+  lbSet(n, _idx[n] || 0);
+}
+function lbClose(n) {
+  var lb = document.getElementById('lightbox_' + n); if (lb) lb.style.display = 'none';
+}
+
+// Her ilan için doğrudan listener bağla
+function bindGallery(n) {
+  var p = _photos[n]; if (!p || !p.length) return;
+  _idx[n] = 0;
+
+  // Ana fotoğraf → lightbox aç
+  var cov = document.getElementById('cover_' + n);
+  if (cov) cov.addEventListener('click', function() { lbOpen(n); });
+
+  // Ok butonları
+  var prevBtn = document.getElementById('prev_' + n);
+  var nextBtn = document.getElementById('next_' + n);
+  if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); gSet(n, ((_idx[n]||0) - 1 + p.length) % p.length); });
+  if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); gSet(n, ((_idx[n]||0) + 1) % p.length); });
+
+  // Thumbnails
+  var row = document.getElementById('thumbRow_' + n);
+  if (row) row.querySelectorAll('img').forEach(function(t, i) {
+    t.addEventListener('click', function() { gSet(n, i); });
+  });
+
+  // Lightbox kapat
+  var lb = document.getElementById('lightbox_' + n);
+  if (lb) lb.addEventListener('click', function(e) { if (e.target === lb) lbClose(n); });
+  var closeBtn = document.getElementById('lbClose_' + n);
+  if (closeBtn) closeBtn.addEventListener('click', function(e) { e.stopPropagation(); lbClose(n); });
+
+  // Lightbox ok
+  var lbPrev = document.getElementById('lbPrev_' + n);
+  var lbNext = document.getElementById('lbNext_' + n);
+  if (lbPrev) lbPrev.addEventListener('click', function(e) { e.stopPropagation(); lbSet(n, ((_idx[n]||0) - 1 + p.length) % p.length); });
+  if (lbNext) lbNext.addEventListener('click', function(e) { e.stopPropagation(); lbSet(n, ((_idx[n]||0) + 1) % p.length); });
+
+  // Lightbox thumbnails
+  for (var i = 0; i < p.length; i++) {
+    (function(ti) {
+      var t = document.getElementById('lbThumb_' + n + '_' + ti);
+      if (t) t.addEventListener('click', function(e) { e.stopPropagation(); lbSet(n, ti); });
+    })(i);
+  }
+}
+
+// İlgileniyorum
+function bindIlgi(n) {
+  var btn = document.getElementById('ilgiBtn_' + n);
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    var isActive = btn.dataset.active === '1';
+    btn.dataset.active = isActive ? '0' : '1';
+    if (!isActive) {
+      var phone = (btn.dataset.phone || '').replace(/D/g, '');
+      var msg = 'Merhaba ' + (btn.dataset.agent || 'Danışman') + ', size gönderilen portföy sunumundaki "' + (btn.dataset.title || 'İlan') + '"' + (btn.dataset.price ? ' (' + btn.dataset.price + ')' : '') + ' ilanıyla ilgileniyorum. Bilgi alabilir miyim?';
+      if (phone) window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
+      btn.textContent = '✅ İlgileniyorum — Danışman bilgilendirilecek';
+      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+      btn.style.boxShadow = '0 4px 14px rgba(22,163,74,0.4)';
+    } else {
+      btn.textContent = '☐ Bu İlanla İlgileniyorum';
+      btn.style.background = 'linear-gradient(135deg,#2563eb,#1d4ed8)';
+      btn.style.boxShadow = '0 4px 14px rgba(37,99,235,0.4)';
+    }
+  });
+}
+
+// window.load garantili - DOM + resimler hazır olduktan sonra başlat
+window.addEventListener('load', function() {
+  for (var n = 0; n < 2; n++) { bindGallery(n); bindIlgi(n); }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    for (var n = 0; n < 2; n++) lbClose(n);
+  }
+});
+})();
+</script>
+</body>
+</html>
